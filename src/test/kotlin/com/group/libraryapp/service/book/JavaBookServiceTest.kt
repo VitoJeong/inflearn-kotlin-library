@@ -1,6 +1,7 @@
 package com.group.libraryapp.service.book;
 
 import com.group.libraryapp.domain.book.Book
+import com.group.libraryapp.domain.book.JavaBook
 import com.group.libraryapp.domain.book.BookRepository
 import com.group.libraryapp.domain.user.User
 import com.group.libraryapp.domain.user.UserRepository
@@ -16,7 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest
 
 
 @SpringBootTest
-class BookServiceTest @Autowired constructor(
+class JavaBookServiceTest @Autowired constructor(
     private val bookService: BookService,
     private val bookRepository: BookRepository,
     private val userRepository: UserRepository,
@@ -43,7 +44,6 @@ class BookServiceTest @Autowired constructor(
         val books = bookRepository.findAll()
         assertThat(books).hasSize(1)
         assertThat(books[0].name).isEqualTo(bookRequest.name)
-
     }
 
     @Test
