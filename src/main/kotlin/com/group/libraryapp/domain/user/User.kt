@@ -5,10 +5,11 @@ import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory
 import javax.persistence.*
 
 @Entity
-class User(
+class User constructor(
 
     var name: String,
     val age: Int?,
+
     @OneToMany(mappedBy = "user",
         cascade = [CascadeType.ALL],
         orphanRemoval = true)
