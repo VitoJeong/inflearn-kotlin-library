@@ -4,6 +4,8 @@ plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.6.21'
     id 'org.jetbrains.kotlin.plugin.jpa' version('1.6.21')
+    // AOP proxy 등을 위한 클래스 및 멤버에 대해 open 키워드를 자동으로 붙여준다.
+    id 'org.jetbrains.kotlin.plugin.spring' version('1.6.21')
 }
 
 group = 'com.group'
@@ -19,6 +21,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation ('org.jetbrains.kotlin:kotlin-stdlib-jdk8')
     runtimeOnly 'com.h2database:h2'
+    /*
+    * Kotlin은 Java와 달리, 런타임 시 클래스와 그 멤버에 대한 메타데이터를 제공하기 위한 리플렉션 라이브러리를 필요
+    * (Java는 기본적으로 java.lang.reflect 패키지를 통해 리플렉션 기능을 제공)
+    * Spring Data JPA 내에서 엔티티 클래스의 메타데이터를 분석하여 동적으로 프록시를 생성하거나 의존성을 주입하는 등의 작업을 수행
+    */
     implementation('org.jetbrains.kotlin:kotlin-reflect:1.6.21')
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
