@@ -28,6 +28,11 @@ dependencies {
     */
     implementation('org.jetbrains.kotlin:kotlin-reflect:1.6.21')
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    /*
+    * 직력화 / 역직렬화시 코틀린 모듈을 고려하도록 지원
+    */
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin"
 }
 
 test {
